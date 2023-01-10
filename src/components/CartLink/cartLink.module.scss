@@ -1,0 +1,29 @@
+.cartLink{
+    font-family: var(--bold);
+    font-size: 16px;
+    line-height: 28px;
+    color: #231F20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 42px;
+    background: var(--yellow-100);
+    border-radius: 8px;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    
+    &:before{
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 113px;
+        width: 2px;
+        height: 23px;
+        background: #231F20;
+        border-radius: 5px;
+    }
+}
