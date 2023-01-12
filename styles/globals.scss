@@ -231,3 +231,17 @@ ul,li{
     padding: 0px 10px;
     margin: 0 auto;
 }
+
+input{
+  border: 1.5px solid #E2E2E9;
+  border-radius: 8px;
+  padding-left: 20px;
+}
+
+label{
+  font-family: var(--medium);
+  font-size: 13px;
+  line-height: 28px;
+  color: var(--gray-100);
+  opacity: 0.82;
+}

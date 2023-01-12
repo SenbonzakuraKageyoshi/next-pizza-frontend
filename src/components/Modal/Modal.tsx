@@ -12,9 +12,11 @@ const Modal = ({ children }: IModalProps) => {
         <div className={styles.modalContent}>
             <header className={styles.modalHeader}>
                 <span>Вход на сайт</span>
-                <Image src={closeModal} alt="close" width={40} height={40}/>
+                <button>
+                  <Image src={closeModal} alt="close" width={40} height={40}/>
+                </button>
             </header>
-            {children}
+            { children }
         </div>
     </div>
   )

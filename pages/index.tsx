@@ -4,6 +4,9 @@ import { InferGetServerSidePropsType } from 'next'
 import { client } from '../service/service';
 import { Product } from '../src/types/product';
 import Modal from '../src/components/Modal/Modal';
+import AuthComponent from '../src/components/AuthComponent/AuthComponent';
+import { modal } from '../src/redux/selectors';
+import { useAppSelector } from '../src/redux/redux-hooks';
 
 export const getServerSideProps: GetServerSideProps<{ data: Product[] }> = async () => {
   const { data } = await client.get<Product[]>('/products/get-products?productCategory=pizza&limit=8');
@@ -16,10 +19,19 @@ export const getServerSideProps: GetServerSideProps<{ data: Product[] }> = async
 };
 
 const Home = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+
+  const modalState = useAppSelector(modal);
+
   return (
     <>
       <ProductList categoryName='Пицца' data={data}/>
-      <Modal>asdasdadads</Modal>
+      {
+      modalState 
+      &&
+      <Modal>
+        <AuthComponent />
+      </Modal>
+      }
     </>
   );
 };

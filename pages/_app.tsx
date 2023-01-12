@@ -3,6 +3,8 @@ import Layout from '../src/components/Layout/Layout';
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Loader from '../src/components/Loader/Loader';
+import { Provider } from 'react-redux';
+import store from '../src/redux/store';
 import '../styles/globals.scss';
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -21,9 +23,11 @@ const App = ({ Component, pageProps }: AppProps) => {
   }, []);
 
   return (
-    <Layout>
-      {loading ? <Loader /> : <Component {...pageProps} />}
-    </Layout>
+    <Provider store={store}>
+      <Layout>
+        {loading ? <Loader /> : <Component {...pageProps} />}
+      </Layout>
+    </Provider>
   )
 };
 
