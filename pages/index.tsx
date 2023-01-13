@@ -24,7 +24,8 @@ const Home = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) 
 
   return (
     <>
-      <ProductList categoryName='Пицца' data={data}/>
+    <section className="sectionHome">
+    <ProductList categoryName='Пицца' data={data}/>
       {
       modalState 
       &&
@@ -32,6 +33,7 @@ const Home = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) 
         <AuthComponent />
       </Modal>
       }
+    </section>
     </>
   );
 };

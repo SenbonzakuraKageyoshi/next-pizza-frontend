@@ -1,11 +1,28 @@
-import Link from 'next/link';
 import CartLink from '../CartLink/CartLink';
 import styles from './navigation.module.scss';
+import { useAppSelector, useAppDispatch } from '../../redux/redux-hooks';
+import { user } from '../../redux/selectors';
+import { changeIsOpened } from '../../redux/modalSlice/modal';
+import Link from 'next/link';
 
 const Navigation = () => {
+
+  const userData = useAppSelector(user);
+  const dispatch = useAppDispatch();
+
   return (
     <nav className={styles.navigation}>
-        <Link href="/auth" className={styles.navigationLink}>Войти</Link>
+      {
+        userData.data && userData.status === 'fulfilled'
+        ?
+        <Link href="/profile" className={styles.navigationLink}>Профиль</Link>
+        :
+        !userData.data && userData.status === 'pending'
+        ?
+        <div className={styles.navigationLink}>Загрузка...</div>
+        :
+        <button className={styles.navigationLink} onClick={() => dispatch(changeIsOpened())}>Войти</button>
+      }
         <CartLink />
     </nav>
   )

@@ -1,0 +1,21 @@
+.profileInfoItemName{
+    font-family: var(--bold);
+    font-size: 14px;
+    line-height: 28px;
+    color: #231F20;
+    opacity: 0.7;
+}
+
+.profileInfoItemValue{
+    max-width: 300px;
+    background: rgba(241, 242, 245, 0.6);
+    border: 1.5px solid #E3ECF5;
+    border-radius: 8px;
+    margin-top: 5px;
+    padding: 10px 0px 10px 20px;
+    font-family: var(--bold);
+    font-size: 15px;
+    line-height: 28px;
+    color: #231F20;
+    opacity: 0.82;
+}
