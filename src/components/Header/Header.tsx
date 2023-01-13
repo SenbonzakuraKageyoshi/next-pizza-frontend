@@ -1,12 +1,14 @@
-import styles from './header.module.scss';
+import React from 'react';
 import Image from 'next/image';
 import Navigation from '../Navigation/Navigation';
 import logo from '/public/icons/logo.svg';
 import Link from 'next/link';
+import styles from './header.module.scss';
 
 interface IHeaderProps {}
 
-const Header = ({  }: IHeaderProps) => {
+const Header = React.memo(({  }: IHeaderProps) => {
+
   return (
     <header className={styles.header}>
         <div className="container">
@@ -19,6 +21,6 @@ const Header = ({  }: IHeaderProps) => {
         </div>
     </header>
   )
-}
+});
 
 export default Header

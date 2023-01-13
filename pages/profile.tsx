@@ -4,13 +4,14 @@ import { user } from '../src/redux/selectors';
 import { useEffect } from 'react';
 import Loader from '../src/components/Loader/Loader';
 import ProfileInfoItem from '../src/components/ProfileInfoItem/ProfileInfoItem';
+import LogoutButton from '../src/components/LogoutButton/LogoutButton';
 
 const profile = () => {
 
   const userData = useAppSelector(user);
 
   useEffect(() => {
-    if(!userData.data && userData.status === 'rejected'){
+    if(!userData.data && userData.status === 'rejected' || !localStorage.getItem('pizza-app-token')){
         window.location.href = '/'
     }
   }, [userData.data])
@@ -26,6 +27,7 @@ const profile = () => {
       <ProfileInfoItem name='Фамилия' value={userData.data.userLastName}/>
       <ProfileInfoItem name='Почта' value={userData.data.userMail}/>
       <ProfileInfoItem name='Телефон' value={userData.data.userTelephone}/>
+      <LogoutButton />
       </>
       :
       <Loader />
