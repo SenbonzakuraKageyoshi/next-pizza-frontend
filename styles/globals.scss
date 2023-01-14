@@ -238,6 +238,13 @@ ul,li{
   margin: 0 auto;
 }
 
+.error-message{
+  margin-top: 10px;
+  color: var(--pink);
+  font-family: var(--medium);
+  font-size: 12px;
+}
+
 input{
   border: 1.5px solid #E2E2E9;
   border-radius: 8px;

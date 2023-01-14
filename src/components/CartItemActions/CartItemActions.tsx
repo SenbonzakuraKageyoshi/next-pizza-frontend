@@ -4,21 +4,21 @@ import minus from '../../../public/icons/minus.svg';
 import remove from '../../../public/icons/remove.svg';
 import Image from 'next/image';
 
-// interface ICartItemActions {
-//     productNumber: number,
-//     incrementProductNumber: (id: string) => void,
-//     decrementProductNumber: (id: string) => void,
-//     removeProduct: (id: string) => void
-// }
+interface ICartItemActionsProps {
+    productNumber: number,
+    // incrementProductNumber: (id: string) => void,
+    // decrementProductNumber: (id: string) => void,
+    // removeProduct: (id: string) => void
+}
 
-const CartItemActions = () => {
+const CartItemActions = ({ productNumber }: ICartItemActionsProps) => {
   return (
     <div className={styles.cartItemActions}>
         <div className={styles.numberActions}>
             <button className={styles.numberActionsItem}>
                 <Image src={minus} alt='-' width={8} height={17}/>
             </button>
-            <div className={styles.cartItemNumber}>1</div>
+            <div className={styles.cartItemNumber}>{productNumber}</div>
             <button className={styles.numberActionsItem}>
                 <Image src={plus} alt='+' width={8} height={17}/>
             </button>

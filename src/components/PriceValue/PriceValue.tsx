@@ -3,7 +3,7 @@ import styles from './priceValue.module.scss';
 interface IPriceValue {
     fontSize?: string,
     color?: string
-    value: string
+    value: number
 };
 
 const PriceValue = ({ value, fontSize, color }: IPriceValue) => {

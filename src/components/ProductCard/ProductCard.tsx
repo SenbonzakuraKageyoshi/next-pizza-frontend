@@ -3,7 +3,7 @@ import Image from 'next/image';
 import ProductButton from '../ProductButton/ProductButton';
 import { Product } from '../../types/product';
 
-const ProductCard = ({ id, productName, productDescription, productImage, productPrice }: Omit<Product, 'productCategory'>) => {
+const ProductCard = ({ id, productName, productDescription, productImage, productPrice }: Omit<Product, 'productCategory' | 'createdAt' | 'updatedAt'>) => {
   return (
     <li className={styles.productCard}>
         <Image src={productImage} alt='pizza' width={253} height={253} className={styles.productImage}/>
@@ -11,7 +11,7 @@ const ProductCard = ({ id, productName, productDescription, productImage, produc
         <p className={styles.productDescr}>{productDescription}</p>
         <div className={styles.productCardFooter}>
           <span className={styles.productPrice}>от {productPrice} ₽</span>
-          <ProductButton />
+          <ProductButton ProductId={id} />
         </div>
     </li>
   )
