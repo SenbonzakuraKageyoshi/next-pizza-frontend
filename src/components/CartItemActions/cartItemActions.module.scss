@@ -1,0 +1,40 @@
+.numberActions{
+    display: flex;
+    align-items: center;
+}
+
+.numberActionsItem{
+    padding: 7px 15px;
+    font-size: 10px;
+    line-height: 17px;
+    color: var(--gray-100);
+}
+
+.numberActions{
+    display: flex;
+    align-items: center;
+    background: #F3F3F7;
+    border-radius: 8px;
+}
+
+.cartItemNumber{
+    font-family: var(--bold);
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--gray-100);
+}
+
+.cartItemActions{
+    display: flex;
+    align-items: center;
+}
+
+.removeCartItem{
+    margin-left: 35px;
+}
+
+@media(max-width: 690px){
+    .cartItemActions{
+        margin-top: 15px;
+    }
+}

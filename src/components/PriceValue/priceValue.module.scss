@@ -1,0 +1,12 @@
+.productPrice{
+    font-family: var(--extra-bold);
+    font-size: 24px;
+    line-height: 29px;
+    color: #F7D22D;
+}
+
+@media(max-width: 690px){
+    .productPrice{
+        margin-top: 10px;
+    }
+}

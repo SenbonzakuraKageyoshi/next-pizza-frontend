@@ -1,0 +1,41 @@
+.cartList{
+    margin-top: 35px;
+}
+
+.cartActionsItem{
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    line-height: 28px;
+    
+    &:first-child{
+        span {
+            font-family: var(--bold);
+            color: var(--gray-100);
+            margin-left: 15px;
+        }
+    }
+
+    &:last-child{
+        width: 225px;
+        height: 55px;
+        background: var(--yellow-100);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+
+        span {
+            font-family: var(--extra-bold);
+            color: #231F20;
+            margin-right: 15px;
+        }
+    }
+}
+
+.cartActions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+}

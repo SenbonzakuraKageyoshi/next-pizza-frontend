@@ -27,3 +27,16 @@
         border-radius: 5px;
     }
 }
+
+@media(max-width: 690px){
+    .cartLink{
+        font-size: 14px;
+        width: 130px;
+        height: 38px;
+
+        &::before{
+            left: 92px;
+            top: 8px;
+        }
+    }
+}

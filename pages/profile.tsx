@@ -1,10 +1,10 @@
-import styles from '../styles/profile.module.scss';
 import { useAppSelector } from '../src/redux/redux-hooks';
 import { user } from '../src/redux/selectors';
 import { useEffect } from 'react';
 import Loader from '../src/components/Loader/Loader';
 import ProfileInfoItem from '../src/components/ProfileInfoItem/ProfileInfoItem';
 import LogoutButton from '../src/components/LogoutButton/LogoutButton';
+import SectionTitle from '../src/components/SectionTitle/SectionTitle';
 
 const profile = () => {
 
@@ -18,7 +18,7 @@ const profile = () => {
 
   return (
     <section className="sectionProfile">
-      <h1 className={styles.profileTitle}>Личные данные</h1>
+      <SectionTitle value='Личные данные'/>
       {
       userData.data && userData.status === 'fulfilled'
       ?

@@ -1,5 +1,5 @@
 import styles from './productList.module.scss';
-import CategoryName from '../CategoryName/CategoryName';
+import SectionTitle from '../SectionTitle/SectionTitle';
 import ProductCard from '../ProductCard/ProductCard';
 import { nanoid } from 'nanoid';
 import { Product } from '../../types/product';
@@ -12,7 +12,7 @@ type IProductListProps = {
 const ProductList = ({ categoryName, data }: IProductListProps) => {
   return (
     <div className={styles.productListWrapper}>
-      <CategoryName value={categoryName}/>
+      <SectionTitle value={categoryName}/>
       <ul className={styles.productList}>
         {data.map((el) => (
           <ProductCard 
