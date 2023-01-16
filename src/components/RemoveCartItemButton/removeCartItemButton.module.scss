@@ -1,0 +1,13 @@
+.removeButton{
+    transition: 0.4s color;
+
+    &:hover{
+        color: var(--yellow-100)
+    }
+}
+
+@media(max-width: 690px){
+    .removeButton{
+        margin-top: 15px;
+    }
+}

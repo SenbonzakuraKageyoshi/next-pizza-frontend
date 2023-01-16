@@ -27,9 +27,9 @@ const CartLink = React.memo(() => {
           {
           selectedProductsData.data && selectedProductsData.status === 'fulfilled'
           ?
-          <span>{productsNumber}</span>
+          <span>({productsNumber})</span>
           :
-          <span>0</span>
+          <span>(0)</span>
           }
       </Link>
     );
@@ -43,7 +43,7 @@ const CartLink = React.memo(() => {
     return (
       <button className={styles.cartLink} onClick={() => dispatch(changeIsOpened())}>
           <span>Корзина</span>
-          <span>0</span>
+          <span>(0)</span>
       </button>
     );
   }

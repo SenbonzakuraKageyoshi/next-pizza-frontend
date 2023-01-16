@@ -15,17 +15,6 @@
     align-items: center;
     justify-content: space-around;
     position: relative;
-    
-    &:before{
-        content: '';
-        position: absolute;
-        top: 10px;
-        left: 113px;
-        width: 2px;
-        height: 23px;
-        background: #231F20;
-        border-radius: 5px;
-    }
 }
 
 .cartLinkLoading {
@@ -51,10 +40,5 @@
         font-size: 14px;
         width: 130px;
         height: 38px;
-
-        &::before{
-            left: 92px;
-            top: 8px;
-        }
     }
 }

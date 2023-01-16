@@ -54,4 +54,10 @@
     .cartProductMiniature{
         margin-bottom: 20px;
     }
+
+    .productMainInfo{
+        & div {
+            margin-left: 0;
+        }
+    }
 }

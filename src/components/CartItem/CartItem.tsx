@@ -2,6 +2,7 @@ import styles from './cartItem.module.scss';
 import Image from 'next/image';
 import PriceValue from '../PriceValue/PriceValue';
 import CartItemActions from '../CartItemActions/CartItemActions';
+import RemoveCartItemButton from '../RemoveCartItemButton/RemoveCartItemButton';
 import { SelectedProduct } from '../../types/product';
 
 const CartItem = ({ id, productsNumber, UserId, ProductId, Product }: Omit<SelectedProduct, 'createdAt' | 'updatedAt'>) => {
@@ -16,6 +17,7 @@ const CartItem = ({ id, productsNumber, UserId, ProductId, Product }: Omit<Selec
         </div>
         <PriceValue fontSize='24'color='#F7D22D' value={Product.productPrice * productsNumber}/>
         <CartItemActions productNumber={productsNumber} selectedProductId={id} UserId={UserId} />
+        <RemoveCartItemButton />
     </div>
   )
 }

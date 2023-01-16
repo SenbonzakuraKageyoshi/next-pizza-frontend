@@ -1,8 +1,6 @@
 import styles from './cartItemActions.module.scss';
-import plus from '../../../public/icons/plus.svg';
-import minus from '../../../public/icons/minus.svg';
-import remove from '../../../public/icons/remove.svg';
-import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatch } from '../../redux/redux-hooks';
 import { incrementSelectedProductNumber, decrementSelectedProductNumber } from '../../service/service';
 import { addSelectedProductNumber, removeSelectedProductNumber } from '../../redux/selectedProductsSlice/selectedProductsSlice';
@@ -11,12 +9,12 @@ interface ICartItemActionsProps {
     productNumber: number,
     selectedProductId: number,
     UserId: number,
-    // incrementProductNumber: (id: string) => void,
-    // decrementProductNumber: (id: string) => void,
-    // removeProduct: (id: string) => void
 }
 
 const CartItemActions = ({ productNumber, selectedProductId, UserId }: ICartItemActionsProps) => {
+
+    const addButtonDisabled: boolean = productNumber === 99 ? true : false;
+    const removeButtonDisabled: boolean = productNumber === 1 ? true : false;
 
     const dispatch = useAppDispatch();
 
@@ -26,6 +24,7 @@ const CartItemActions = ({ productNumber, selectedProductId, UserId }: ICartItem
                 dispatch(addSelectedProductNumber(selectedProductId))
             })
             .catch((res) => console.log(res))
+            // сделать обработку
     };
 
     const onDecrementHandler = () => {
@@ -34,23 +33,20 @@ const CartItemActions = ({ productNumber, selectedProductId, UserId }: ICartItem
                 dispatch(removeSelectedProductNumber(selectedProductId))
             })
             .catch((res) => console.log(res))
+            // сделать обработку
     };
 
   return (
-    // Заменить SVG на что-то более оптимизированное!!!
     <div className={styles.cartItemActions}>
         <div className={styles.numberActions}>
-            <button className={styles.numberActionsItem} onClick={onDecrementHandler}>
-                <Image src={minus} alt='-' width={8} height={17}/>
+            <button className={styles.numberActionsItem} disabled={removeButtonDisabled} onClick={onDecrementHandler}>
+                <FontAwesomeIcon icon={faMinus} />
             </button>
             <div className={styles.cartItemNumber}>{productNumber}</div>
-            <button className={styles.numberActionsItem} onClick={onIncrementHandler}>
-                <Image src={plus} alt='+' width={8} height={17}/>
+            <button className={styles.numberActionsItem} disabled={addButtonDisabled} onClick={onIncrementHandler}>
+                <FontAwesomeIcon icon={faPlus} />
             </button>
         </div>
-        <button className={styles.removeCartItem}>
-            <Image src={remove} alt="удалить" width={27} height={27}/>
-        </button>
     </div>
   )
 }

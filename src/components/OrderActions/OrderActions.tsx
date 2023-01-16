@@ -1,27 +1,26 @@
 import React from "react"
 import Link from "next/link"
-import Image from "next/image"
-import back from '../../../public/icons/back.svg'
-import forward from '../../../public/icons/forward.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from './orderActions.module.scss';
 
-interface IOrderActions {
-    selectedProductsLoaded: boolean
+interface IOrderActionsProps {
+    selectedProductsLoaded: boolean,
 }
 
-const OrderActions = React.memo(({ selectedProductsLoaded }: IOrderActions) => {
+const OrderActions = React.memo(({ selectedProductsLoaded }: IOrderActionsProps) => {
     return (
         <div className={styles.cartActions}>
-            <Link href="/" className={styles.cartActionsItem}>
-                <Image src={back} alt="" width={10} height={28}/>
+            <Link href="/" className={styles.orderActionsItem}>
+            <FontAwesomeIcon icon={faAngleLeft} className={styles.orderActionsItemIcon}/>
                 <span>Вернуться в магазин</span>
             </Link>
             {
             selectedProductsLoaded
             ?
-            <Link href="/order" className={styles.cartActionsItemOrder}>
+            <Link href="/order" className={styles.orderActionsItemOrder}>
                 <span>Оформить заказ</span>
-                <Image src={forward} alt="" width={10} height={28}/>
+                <FontAwesomeIcon icon={faAngleRight} className={styles.orderActionsItemIcon}/>
             </Link>
             :
             null
