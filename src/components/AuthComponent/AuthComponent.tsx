@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { AuthFormValues } from '../../types/authForm';
 import { useAppDispatch } from '../../redux/redux-hooks';
 import { fetchLogin, fetchRegister } from '../../redux/userSlice/userSlice';
-import { updateToken } from '../../../service/service';
+import { updateToken } from '../../service/service';
 import styles from './authComponent.module.scss';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 

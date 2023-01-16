@@ -1,11 +1,10 @@
 import styles from './cartItem.module.scss';
 import Image from 'next/image';
-import productMiniature from '../../../public/product-miniature.png'
 import PriceValue from '../PriceValue/PriceValue';
 import CartItemActions from '../CartItemActions/CartItemActions';
 import { SelectedProduct } from '../../types/product';
 
-const CartItem = ({ id, productsNumber, UserId, Product }: Omit<SelectedProduct, 'createdAt' | 'updatedAt' | 'ProductId'>) => {
+const CartItem = ({ id, productsNumber, UserId, ProductId, Product }: Omit<SelectedProduct, 'createdAt' | 'updatedAt'>) => {
   return (
     <div className={styles.cartItem}>
         <div className={styles.productMainInfo}>
@@ -15,8 +14,8 @@ const CartItem = ({ id, productsNumber, UserId, Product }: Omit<SelectedProduct,
                 <p className={styles.productDescr}>{Product.productDescription}</p>
             </div>
         </div>
-        <PriceValue fontSize='24'color='#F7D22D' value={Product.productPrice}/>
-        <CartItemActions productNumber={productsNumber}/>
+        <PriceValue fontSize='24'color='#F7D22D' value={Product.productPrice * productsNumber}/>
+        <CartItemActions productNumber={productsNumber} selectedProductId={id} UserId={UserId} />
     </div>
   )
 }

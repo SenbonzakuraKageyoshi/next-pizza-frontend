@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from '../../redux/redux-hooks';
 import { changeIsOpened } from '../../redux/modalSlice/modal';
 import { user } from '../../redux/selectors';
-import { selectProduct } from '../../../service/service';
+import { selectProduct } from '../../service/service';
 import styles from './productButton.module.scss';
 
 interface IProductButtonProps {

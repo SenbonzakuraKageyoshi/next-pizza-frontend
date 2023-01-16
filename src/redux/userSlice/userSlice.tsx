@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { client, removeToken, updateToken } from "../../../service/service";
+import { client, removeToken, updateToken } from "../../service/service";
 import { AuthFormValues } from "../../types/authForm";
 import { User } from "../../types/user"; 
 
@@ -25,12 +25,12 @@ export const fetchUser = createAsyncThunk('auth/get-user', async (token: string)
     return data;
 });
 
-interface InitialState {
+export interface IUserState {
     data: User | null,
     status: 'idle' | 'pending' | 'fulfilled' | 'rejected'
 }
 
-const initialState: InitialState = {
+const initialState: IUserState = {
     data: null,
     status: 'idle',
 }

@@ -28,6 +28,24 @@
     }
 }
 
+.cartLinkLoading {
+    font-family: var(--bold);
+    font-size: 16px;
+    line-height: 28px;
+    color: #231F20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 42px;
+    background: var(--yellow-100);
+    border-radius: 8px;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 @media(max-width: 690px){
     .cartLink{
         font-size: 14px;

@@ -8,6 +8,7 @@ import Link from 'next/link';
 const Navigation = () => {
 
   const userData = useAppSelector(user);
+  
   const dispatch = useAppDispatch();
 
   return (

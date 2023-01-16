@@ -5,15 +5,14 @@ import Loader from '../src/components/Loader/Loader';
 import ProfileInfoItem from '../src/components/ProfileInfoItem/ProfileInfoItem';
 import LogoutButton from '../src/components/LogoutButton/LogoutButton';
 import SectionTitle from '../src/components/SectionTitle/SectionTitle';
+import { checkAuth } from '../src/utils/checkAuth';
 
 const profile = () => {
 
   const userData = useAppSelector(user);
 
   useEffect(() => {
-    if(!userData.data && userData.status === 'rejected' || !localStorage.getItem('pizza-app-token')){
-        window.location.href = '/'
-    }
+    checkAuth(userData)
   }, [userData.data])
 
   return (

@@ -5,10 +5,7 @@ import logo from '/public/icons/logo.svg';
 import Link from 'next/link';
 import styles from './header.module.scss';
 
-interface IHeaderProps {}
-
-const Header = React.memo(({  }: IHeaderProps) => {
-
+const Header = React.memo(() => {
   return (
     <header className={styles.header}>
         <div className="container">
