@@ -5,3 +5,10 @@ export interface AuthFormValues {
     userTelephone: string,
     userPassword: string
 };
+
+export interface AdressFormValues {
+    userCity: string,
+    userAdress: string,
+    userHouseNumber: string,
+    userApartmentNumber: string,
+};

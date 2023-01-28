@@ -29,7 +29,7 @@ const Home = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) 
       {
       modalState 
       &&
-      <Modal>
+      <Modal header='Вход в аккаунт'>
         <AuthComponent />
       </Modal>
       }

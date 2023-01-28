@@ -1,4 +1,4 @@
-.logoutButton{
+.profileActionButton{
     background: #E3ECF5;
     border-radius: 8px;
     width: 138px;
@@ -8,4 +8,10 @@
     line-height: 28px;
     color: var(--gray-100);
     margin-top: 40px;
+    transition: 0.4s;
+
+    &:hover{
+        background: var(--pink);
+        color: var(--white);
+    }
 }

@@ -9,7 +9,7 @@ const ProfileInfoItem = ({ name, value }: IProfileInfoItem) => {
   return (
     <div className={styles.profileInfoItem}>
         <span className={styles.profileInfoItemName}>{name}</span>
-        <div className={styles.profileInfoItemValue}>{value}</div>
+        <div className={styles.profileInfoItemValue}>{value || 'Нет данных'}</div>
     </div>
   );
 };

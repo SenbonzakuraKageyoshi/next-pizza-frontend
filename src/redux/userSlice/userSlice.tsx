@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { client } from "../../service/service";
 import { removeToken, updateToken } from "../../utils/token";
-import { AuthFormValues } from "../../types/authForm";
+import { AuthFormValues } from "../../types/forms";
 import { User } from "../../types/user"; 
 import { Status } from "../../types/status";
 

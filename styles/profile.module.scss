@@ -1,0 +1,18 @@
+.sectionProfileContent{
+    display: flex;
+}
+
+.sectionProfileItem:not(:first-child){
+    margin-left: 40px;
+}
+
+@media (max-width: 700px){
+    .sectionProfileContent{
+        flex-direction: column;
+    }
+
+    .sectionProfileItem:not(:first-child){
+        margin-left: 0px;
+        margin-top: 40px;
+    }
+}

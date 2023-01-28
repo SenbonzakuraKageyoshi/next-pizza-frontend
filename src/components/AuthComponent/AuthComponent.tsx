@@ -1,11 +1,14 @@
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { AuthFormValues } from '../../types/authForm';
+import { AuthFormValues } from '../../types/forms';
 import { useAppDispatch } from '../../redux/redux-hooks';
 import { fetchLogin, fetchRegister } from '../../redux/userSlice/userSlice';
-import { updateToken } from '../../service/service';
 import styles from './authComponent.module.scss';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
+
+// Вынести стили в 1 файл
+// Сделать нейстральный нейминг стилей
+// Сделать мапинг по возможности
 
 const AuthComponent = () => {
 

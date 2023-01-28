@@ -6,9 +6,10 @@ import { changeIsOpened } from '../../redux/modalSlice/modal';
 
 interface IModalProps {
     children: React.ReactNode
+    header: string,
 };
 
-const Modal = ({ children }: IModalProps) => {
+const Modal = ({ children, header }: IModalProps) => {
 
   const dispatch = useAppDispatch();
 
@@ -16,7 +17,7 @@ const Modal = ({ children }: IModalProps) => {
     <div className={styles.modalWrapper}>
         <div className={styles.modalContent}>
             <header className={styles.modalHeader}>
-                <span>Вход на сайт</span>
+                <span>{ header }</span>
                 <button>
                   <Image src={closeModal} alt="close" width={40} height={40} onClick={() => dispatch(changeIsOpened())}/>
                 </button>
