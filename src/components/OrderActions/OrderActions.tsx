@@ -17,13 +17,11 @@ const OrderActions = React.memo(({ selectedProductsLoaded }: IOrderActionsProps)
             </Link>
             {
             selectedProductsLoaded
-            ?
+            &&
             <Link href="/order" className={styles.orderActionsItemOrder}>
                 <span>Оформить заказ</span>
                 <FontAwesomeIcon icon={faAngleRight} className={styles.orderActionsItemIcon}/>
             </Link>
-            :
-            null
             }
         </div>
       );

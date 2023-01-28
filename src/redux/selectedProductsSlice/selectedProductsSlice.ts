@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { client } from "../../service/service";
 import { SelectedProduct } from "../../types/product";
-import { getToken } from "../../service/service";
+import { getToken } from "../../utils/token";
+import { Status } from "../../types/status";
 
 const namespace: string = 'products';
 
@@ -15,7 +16,7 @@ export const fetchSelectedProducts = createAsyncThunk('products/get-selected-pro
 
 interface InitialState {
     data: SelectedProduct[] | null,
-    status: 'idle' | 'pending' | 'fulfilled' | 'rejected'
+    status: Status
 }
 
 const initialState: InitialState = {
@@ -39,6 +40,11 @@ const selectedProductsSlice = createSlice({
                 state.data[currentIndex].productsNumber--
             }
         },
+        removeSelectedProduct: (state, action: PayloadAction<SelectedProduct['id']>) => {
+            if(state.data){
+                state.data = state.data.filter((el) => el.ProductId !== action.payload);
+            }
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(fetchSelectedProducts.pending, (state) => {
@@ -58,4 +64,8 @@ const selectedProductsSlice = createSlice({
 
 export const selectedProductsReducer = selectedProductsSlice.reducer;
 
-export const { addSelectedProductNumber, removeSelectedProductNumber } = selectedProductsSlice.actions;
+export const { 
+    addSelectedProductNumber,
+    removeSelectedProductNumber,
+    removeSelectedProduct
+} = selectedProductsSlice.actions;

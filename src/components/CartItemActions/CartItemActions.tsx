@@ -9,35 +9,53 @@ interface ICartItemActionsProps {
     productNumber: number,
     selectedProductId: number,
     UserId: number,
+    isLoading: boolean,
+    setIsLoading: (arg: boolean) => void,
+    setIsError: (arg: boolean) => void
 }
 
-const CartItemActions = ({ productNumber, selectedProductId, UserId }: ICartItemActionsProps) => {
+const CartItemActions = ({ productNumber, selectedProductId, UserId, isLoading, setIsLoading, setIsError }: ICartItemActionsProps) => {
 
-    const addButtonDisabled: boolean = productNumber === 99 ? true : false;
-    const removeButtonDisabled: boolean = productNumber === 1 ? true : false;
+    const addButtonDisabled: boolean = productNumber === 99 || isLoading ? true : false;
+    const removeButtonDisabled: boolean = productNumber === 1 || isLoading ? true : false;
 
     const dispatch = useAppDispatch();
 
     const onIncrementHandler = () => {
+
+        setIsError(false);
+
+        setIsLoading(true);
         incrementSelectedProductNumber(UserId, selectedProductId)
             .then(() => {
-                dispatch(addSelectedProductNumber(selectedProductId))
+                dispatch(addSelectedProductNumber(selectedProductId));
+                setIsLoading(false);
             })
-            .catch((res) => console.log(res))
-            // сделать обработку
+            .catch(() => {
+                setIsLoading(false);
+                setIsError(true);
+            })
     };
 
     const onDecrementHandler = () => {
+
+        setIsError(false);
+
+        setIsLoading(true);
         decrementSelectedProductNumber(UserId, selectedProductId)
             .then(() => {
-                dispatch(removeSelectedProductNumber(selectedProductId))
+                dispatch(removeSelectedProductNumber(selectedProductId));
+                setIsLoading(false);
             })
-            .catch((res) => console.log(res))
-            // сделать обработку
+            .catch(() => {
+                setIsLoading(false);
+                setIsError(true);
+            })
     };
 
   return (
     <div className={styles.cartItemActions}>
+        <div className={styles.cartItemActionsWrapper}>
         <div className={styles.numberActions}>
             <button className={styles.numberActionsItem} disabled={removeButtonDisabled} onClick={onDecrementHandler}>
                 <FontAwesomeIcon icon={faMinus} />
@@ -46,6 +64,7 @@ const CartItemActions = ({ productNumber, selectedProductId, UserId }: ICartItem
             <button className={styles.numberActionsItem} disabled={addButtonDisabled} onClick={onIncrementHandler}>
                 <FontAwesomeIcon icon={faPlus} />
             </button>
+        </div>
         </div>
     </div>
   )
