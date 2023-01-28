@@ -1,0 +1,14 @@
+.cartTotalPrice{
+    font-family: var(--bold);
+    font-size: 20px;
+    line-height: 17px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.cartTotalPriceValue{
+    font-family: var(--extra-bold);
+    color: var(--yellow-100);
+    margin-left: 10px;
+}

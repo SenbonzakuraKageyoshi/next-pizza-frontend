@@ -6,6 +6,7 @@ import { useAppSelector } from "../src/redux/redux-hooks"
 import styles from '../styles/cart.module.scss'
 import { selectedProducts, user } from "../src/redux/selectors"
 import Loader from "../src/components/Loader/Loader"
+import CartTotalPrice from "../src/components/CartTotalPrice/CartTotalPrice"
 import { nanoid } from "nanoid"
 import { checkAuth } from "../src/utils/checkAuth"
 
@@ -44,6 +45,17 @@ const cart = () => {
         selectedProductsData.data && selectedProductsData.status === 'fulfilled' && !selectedProductIsNotEmpty
         ?
         <div className="error-message">Корзина пуста</div>
+        :
+        null
+        }
+        {
+        !selectedProductsData.data && selectedProductsData.status === 'pending'
+        ?
+        <Loader />
+        :
+        selectedProductsData.data && selectedProductsData.status === 'fulfilled' && selectedProductIsNotEmpty
+        ?
+        <CartTotalPrice selectedProducts={selectedProductsData.data}/>
         :
         null
         }
