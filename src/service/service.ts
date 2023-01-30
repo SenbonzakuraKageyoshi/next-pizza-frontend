@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getToken } from "../utils/token";
+import { AdressFormValues } from "../types/forms";
 
 export const client = axios.create({
     baseURL: 'http://localhost:5000/api'
@@ -31,6 +32,14 @@ export const incrementSelectedProductNumber = async (UserId: number, id: number)
 
 export const decrementSelectedProductNumber = async (UserId: number, id: number) => {
     const { data } = await client.post('/products/remove-selected-product', {UserId, id}, {headers: {
+        Authorization: 'Bearer ' + getToken()
+    }});
+
+    return data;
+}
+
+export const updateUser = async (payload: AdressFormValues) => {
+    const { data } = await client.post('/user/update-user', payload, {headers: {
         Authorization: 'Bearer ' + getToken()
     }});
 
