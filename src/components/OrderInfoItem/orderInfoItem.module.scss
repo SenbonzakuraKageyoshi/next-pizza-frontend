@@ -1,0 +1,38 @@
+.orderInfoItemName{
+    font-family: var(--bold);
+    font-size: 17px;
+    line-height: 28px;
+    color: #231F20;
+    opacity: 0.7;
+}
+
+.orderInfoItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:not(:first-child){
+        margin-top: 15px;
+    }
+}
+
+.orderInfoItemValue{
+    font-family: var(--bold);
+    font-size: 17px;
+    line-height: 28px;
+    color: #231F20;
+    opacity: 0.82;
+    max-width: 540px;
+    width: 100%;
+    border: 1.5px solid #E2E2E9;
+    border-radius: 7px;
+    padding: 10px 20px;
+    word-break: break-all;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.orderInfoItemEditButton{
+    color: var(--yellow-100);
+}

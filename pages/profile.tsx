@@ -28,7 +28,7 @@ const profile = () => {
     {id: 2, name: 'Фамилия', value: 'userLastName'},
     {id: 3, name: 'Почта', value: 'userMail'},
     {id: 4, name: 'Телефон', value: 'userTelephone'},
-  ];
+  ] as const;
 
   const userAdressItems =
   [
@@ -36,7 +36,7 @@ const profile = () => {
     {id: 2, name: 'Адрес', value: 'userAdress'},
     {id: 3, name: '№ дома', value: 'userHouseNumber'},
     {id: 4, name: '№ квартиры', value: 'userApartmentNumber'},
-  ];
+  ] as const;
 
   return (
     <section className="sectionProfile">
@@ -47,14 +47,18 @@ const profile = () => {
         <div className={styles.sectionProfileItem}>
           <SectionTitle value='Личные данные'/>
             {userDataItems.map((el) => (
-              <ProfileInfoItem key={el.id} name={el.name} value={(userData.data as any)[`${el.value}`]}/>
+              userData.data 
+              &&
+              <ProfileInfoItem key={el.id} name={el.name} value={userData.data[`${el.value}`]}/>
             ))}
           <ProfileActionButton func={logout} text="Выйти"/>
         </div>
         <div className={styles.sectionProfileItem}>
           <SectionTitle value='Адрес доставки'/>
             {userAdressItems.map((el) => (
-              <ProfileInfoItem key={el.id} name={el.name} value={(userData.data as any)[`${el.value}`]}/>
+              userData.data 
+              &&
+              <ProfileInfoItem key={el.id} name={el.name} value={userData.data[`${el.value}`]}/>
             ))}
             <ProfileActionButton func={changeIsOpened} text="Изменить"/>
         </div>
