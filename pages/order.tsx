@@ -7,6 +7,8 @@ import ErrorMessage from "../src/components/ErrorMessage/ErrorMessage"
 import { useState } from "react"
 import Modal from "../src/components/Modal/Modal"
 import TimeComponent from "../src/components/TimeComponent/TimeComponent"
+import FinalOrderInfo from "../src/components/FinalOrderInfo/FinalOrderInfo"
+import OrderActions from "../src/components/OrderActions/OrderActions"
 import styles from '../styles/order.module.scss';
 
 const order = () => {
@@ -32,15 +34,21 @@ const order = () => {
       {
       userData.data && userData.status === 'fulfilled'
       ?
-      <div className="sectionOrderContent">
+      <>
+      <div className={styles.sectionOrderContent}>
           <div className={styles.orderInfo}>
             <SectionTitle value="Заказ на доставку"/>
             <OrderInfoItem name="Имя" value={userData.data.userFirstName}/>
             <OrderInfoItem name="Телефон" value={userData.data.userTelephone}/>
             <OrderInfoItem name="Адрес" value={userAdress} />
             <OrderInfoItem name="Время доставки" value={time} isEditable={true}/>
+            <div className={styles.orderActions}>
+              <OrderActions selectedProductsLoaded={true}/>
+            </div>
           </div>
+          <FinalOrderInfo />
       </div>
+      </>
       :
       !userData.data && userData.status === 'pending'
       ?

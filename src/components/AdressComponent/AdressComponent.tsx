@@ -29,32 +29,34 @@ const AdressComponent = () => {
     };
 
   return (
+    userData.data && userData.status === 'fulfilled'
+    &&
     <form action="POST" className={styles.adressForm} onSubmit={handleSubmit(onSubmitHandler)}>
         <div className={styles.formItem}>
             <div>
                 <label htmlFor="userCity">Город</label>
-                <input {...register('userCity', {required: {value: true, message: 'Поле обязательно к заполнению'}})} type="text" className={styles.formInput} name="userCity"/>
+                <input defaultValue={userData.data.userCity} {...register('userCity', {required: {value: true, message: 'Поле обязательно к заполнению'}})} type="text" className={styles.formInput} name="userCity"/>
             </div>
             <div className={styles.formInputErrorMessage}>{errors['userCity'] && <span>{errors['userCity'].message}</span>}</div>
         </div>
         <div className={styles.formItem}>
             <div>
                 <label htmlFor="userAdress">Адрес</label>
-                <input {...register('userAdress', {required: {value: true, message: 'Поле обязательно к заполнению'}})} type="text" className={styles.formInput} name="userAdress"/>
+                <input defaultValue={userData.data.userAdress} {...register('userAdress', {required: {value: true, message: 'Поле обязательно к заполнению'}})} type="text" className={styles.formInput} name="userAdress"/>
             </div>
             <div className={styles.formInputErrorMessage}>{errors['userAdress'] && <span>{errors['userAdress'].message}</span>}</div>
         </div>
         <div className={styles.formItem}>
             <div>
                 <label htmlFor="userHouseNumber">Номер дома</label>
-                <input {...register('userHouseNumber', {required: {value: true, message: 'Поле обязательно к заполнению'}})} type="text" className={styles.formInput} name="userHouseNumber"/>
+                <input defaultValue={userData.data.userHouseNumber} {...register('userHouseNumber', {required: {value: true, message: 'Поле обязательно к заполнению'}})} type="text" className={styles.formInput} name="userHouseNumber"/>
             </div>
             <div className={styles.formInputErrorMessage}>{errors['userHouseNumber'] && <span>{errors['userHouseNumber'].message}</span>}</div>
         </div>
         <div className={styles.formItem}>
             <div>
                 <label htmlFor="userApartmentNumber">Номер квартиры</label>
-                <input {...register('userApartmentNumber', {required: {value: true, message: 'Поле обязательно к заполнению'}})} type="text" className={styles.formInput} name="userApartmentNumber"/>
+                <input defaultValue={userData.data.userApartmentNumber} {...register('userApartmentNumber', {required: {value: true, message: 'Поле обязательно к заполнению'}})} type="text" className={styles.formInput} name="userApartmentNumber"/>
             </div>
             <div className={styles.formInputErrorMessage}>{errors['userApartmentNumber'] && <span>{errors['userApartmentNumber'].message}</span>}</div>
         </div>

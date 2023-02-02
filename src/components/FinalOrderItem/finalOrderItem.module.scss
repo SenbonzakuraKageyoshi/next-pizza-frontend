@@ -1,0 +1,23 @@
+.finalOrderItemInfo{
+    font-family: var(--bold);
+    font-size: 16px;
+    line-height: 18px;
+    color: rgba(35, 31, 32, 0.8);
+    max-width: 200px;
+}
+
+.finalOrderItem{
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:first-child){
+        margin-top: 20px;
+    }
+}
+
+.finalOrderItemPrice{
+    font-family: var(--bold);
+    font-size: 17px;
+    line-height: 18px;
+    color: #231F20;
+}

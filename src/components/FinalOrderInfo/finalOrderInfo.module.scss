@@ -1,0 +1,64 @@
+.finalOrderInfo{
+    width: 335px;
+    height: 500px;
+    background: var(--white);
+    box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.08);
+    padding: 20px 22px;
+    position: relative;
+}
+
+.finalOrderInfoTitle{
+    font-family: var(--bold);
+    font-size: 16px;
+    line-height: 28px;
+    color: var(--yellow-100);
+}
+
+.finalOrderInfoList{
+    margin-top: 20px;
+    height: 250px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 6px;     
+        position: absolute;
+    }
+      
+    &::-webkit-scrollbar-track {
+        background: #fff;
+    }
+      
+    &::-webkit-scrollbar-thumb {
+        background: #E9E6E6;
+        border-radius: 25px;
+        border: 3px solid transparent;
+    }
+}
+
+.deliveryMessage{
+    margin-top: 30px;
+    font-family: var(--bold);
+    font-size: 15px;
+    line-height: 28px;
+    color: #213134;
+    opacity: 0.6;
+}
+
+.finalOrderTotalPrice{
+    margin-top: 60px;
+
+    & div{
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}
+
+.finalOrderInfoEmpty{
+    position: absolute;
+    top: 200px;
+    left: 85px;
+
+    & div{
+        font-size: 20px;
+    }
+}

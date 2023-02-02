@@ -1,3 +1,13 @@
 .orderInfo{
     max-width: 730px;
+    width: 100%;
+}
+
+.sectionOrderContent{
+    display: flex;
+    justify-content: space-between;
+}
+
+.orderActions{
+    margin-top: 143px;
 }

@@ -26,10 +26,8 @@ const TimeComponent = ({ setTime, time }: ITimeComponentProps) => {
         {id: 1, value: '19:00 - 19:30'},
     ];
 
-    const onClickHandler = (e: React.MouseEvent<HTMLLIElement>) => {
-        let target = e.target as HTMLLIElement;
-        
-        setTime(target.innerHTML)
+    const onClickHandler = (e: React.MouseEvent<HTMLLIElement, MouseEvent> & {target: {innerHTML: string}}) => {
+        setTime(e.target.innerHTML)
         dispatch(changeIsOpened())
     }
 
@@ -42,7 +40,7 @@ const TimeComponent = ({ setTime, time }: ITimeComponentProps) => {
                 {el.value}
             </li>
             :
-            <li className={styles.timesListItem} key={el.id} onClick={(e) => onClickHandler(e)}>
+            <li className={styles.timesListItem} key={el.id} onClick={(e: React.MouseEvent<HTMLLIElement, MouseEvent> & {target: {innerHTML: string}}) => onClickHandler(e)}>
                 {el.value}
             </li>
         ))}
