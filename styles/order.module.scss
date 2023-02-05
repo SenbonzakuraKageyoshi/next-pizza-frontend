@@ -26,3 +26,27 @@
     cursor: pointer;
     font-family: var(--bold);
 }
+
+@media(max-width: 1110px){
+    .orderInfo{
+        max-width: 600px;
+    }
+}
+
+@media(max-width: 970px){
+    .orderInfo{
+        max-width: 430px;
+    }
+}
+
+@media(max-width: 770px){
+    .sectionOrderContent{
+        flex-direction: column;
+    }
+
+    .orderActions{
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: start;
+    }
+}
