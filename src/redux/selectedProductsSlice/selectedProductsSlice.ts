@@ -45,6 +45,9 @@ const selectedProductsSlice = createSlice({
                 state.data = state.data.filter((el) => el.ProductId !== action.payload);
             }
         },
+        clearSelectedProducts: (state) => {
+            state.data = [];
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(fetchSelectedProducts.pending, (state) => {
@@ -67,5 +70,6 @@ export const selectedProductsReducer = selectedProductsSlice.reducer;
 export const { 
     addSelectedProductNumber,
     removeSelectedProductNumber,
-    removeSelectedProduct
+    removeSelectedProduct,
+    clearSelectedProducts
 } = selectedProductsSlice.actions;

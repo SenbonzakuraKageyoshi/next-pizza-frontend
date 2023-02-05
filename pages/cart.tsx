@@ -59,7 +59,7 @@ const cart = () => {
         :
         null
         }
-        <OrderActions selectedProductsLoaded={selectedProductIsNotEmpty ? true : false}/>
+        <OrderActions selectedProductsLoaded={selectedProductIsNotEmpty ? true : false} isOrder={false}/>
       </div>
     </section>
   ) 

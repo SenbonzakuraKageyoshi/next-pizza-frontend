@@ -1,32 +1,31 @@
 import styles from './finalOrderInfo.module.scss';
 import FinalOrderItem from '../FinalOrderItem/FinalOrderItem';
-import { useAppSelector } from '../../redux/redux-hooks';
-import { selectedProducts } from '../../redux/selectors';
 import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import CartTotalPrice from '../CartTotalPrice/CartTotalPrice';
+import { SelectedProduct } from '../../types/product';
 
+interface IFinalOrderInfoProps {
+    selectedProducts: SelectedProduct[]
+}
 
-const FinalOrderInfo = () => {
-
-    const selectedProductsData = useAppSelector(selectedProducts);
-
+const FinalOrderInfo = ({ selectedProducts }: IFinalOrderInfoProps) => {
   return (
    <div className={styles.finalOrderInfo}>
     {
-    selectedProductsData.data && selectedProductsData.status === 'fulfilled'
+    selectedProducts
     ?
-    selectedProductsData.data.length
+    selectedProducts.length
     ?
     <>
     <h1 className={styles.finalOrderInfoTitle}>Состав заказа</h1>
     <ul className={styles.finalOrderInfoList}>
-        {selectedProductsData.data.map((el) => (
+        {selectedProducts.map((el) => (
             <FinalOrderItem name={el.Product.productName} price={el.Product.productPrice} number={el.productsNumber}/>
         ))}
     </ul>
     <div className={styles.finalOrderTotalPrice}>
-        <CartTotalPrice selectedProducts={selectedProductsData.data}/>
+        <CartTotalPrice selectedProducts={selectedProducts}/>
     </div>
     <div className={styles.deliveryMessage}>
         Бесплатная доставка
@@ -36,14 +35,6 @@ const FinalOrderInfo = () => {
     <div className={styles.finalOrderInfoEmpty}>
         <ErrorMessage message="Ваш заказ пуст"/>
     </div>
-    :
-    !selectedProductsData.data && selectedProductsData.status === 'pending'
-    ?
-    <Loader />
-    :
-    !selectedProductsData.data && selectedProductsData.status === 'rejected'
-    ?
-    <ErrorMessage message='Не удалось получить данные заказа, перезагрузите страницу'/>
     :
     null
     }
