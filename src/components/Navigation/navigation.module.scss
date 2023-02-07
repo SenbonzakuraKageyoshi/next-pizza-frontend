@@ -3,6 +3,10 @@
     font-family: var(--bold);
     font-size: 16px;
     line-height: 28px;
+
+    &:not(:first-child){
+        margin-left: 20px;
+    }
 }
 
 .navigation{
@@ -10,8 +14,12 @@
     align-items: center;
 }
 
-@media(max-width: 690px){
+@media(max-width: 600px){
     .navigationLink{
         font-size: 14px;
+
+        &:not(:first-child){
+            margin-left: 10px;
+        }
     }
 }

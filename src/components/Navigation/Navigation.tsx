@@ -16,7 +16,10 @@ const Navigation = () => {
       {
         userData.data && userData.status === 'fulfilled'
         ?
+        <>
         <Link href="/profile" className={styles.navigationLink}>Профиль</Link>
+        <Link href="/orders" className={styles.navigationLink}>Заказы</Link>
+        </>
         :
         !userData.data && userData.status === 'pending'
         ?

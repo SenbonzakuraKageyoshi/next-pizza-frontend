@@ -1,0 +1,33 @@
+.orderItem{
+    display: flex;
+    margin-left: 32px;
+    margin-top: 26px;
+}
+
+.orderItemInfo{
+    margin-left: 20px;
+}
+
+.orderItemName{
+    font-family: var(--bold);
+    font-size: 24px;
+    line-height: 28px;
+    color: var(--gray-90);
+}
+
+.orderItemInfoItem{
+
+    font-family: var(--medium);
+    margin-top: 5px;
+
+    span{
+        font-family: var(--bold);
+    }
+}
+
+@media(max-width: 600px){
+    .orderItem{
+        flex-direction: column;
+        align-items: center;
+    }
+}

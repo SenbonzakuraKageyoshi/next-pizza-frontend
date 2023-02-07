@@ -2,6 +2,7 @@ import axios from "axios";
 import { getToken } from "../utils/token";
 import { AdressFormValues } from "../types/forms";
 import { Message } from "../types/message";
+import { Order } from "../types/order";
 
 export const client = axios.create({
     baseURL: 'http://localhost:5000/api'
@@ -57,6 +58,14 @@ export const updateUser = async (payload: AdressFormValues) => {
 
 export const payOrder = async (payload: {UserId: number, orderData: string}) => {
     const { data } = await client.post<Message>('/order/create-order', payload, {headers: {
+        Authorization: 'Bearer ' + getToken()
+    }});
+
+    return data;
+}
+
+export const getOrders = async (payload: {UserId: number}) => {
+    const { data } = await client.post<Order[]>('/order/get-orders', payload, {headers: {
         Authorization: 'Bearer ' + getToken()
     }});
 
