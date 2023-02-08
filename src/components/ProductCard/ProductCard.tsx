@@ -10,7 +10,7 @@ const ProductCard = ({ id, productName, productDescription, productImage, produc
         <h1 className={styles.productName}>{productName}</h1>
         <p className={styles.productDescr}>{productDescription}</p>
         <div className={styles.productCardFooter}>
-          <span className={styles.productPrice}>от {productPrice} ₽</span>
+          <span className={styles.productPrice}>Цена: {productPrice} ₽</span>
           <ProductButton ProductId={id} />
         </div>
     </li>

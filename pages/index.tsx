@@ -9,7 +9,7 @@ import { modal } from '../src/redux/selectors';
 import { useAppSelector } from '../src/redux/redux-hooks';
 
 export const getServerSideProps: GetServerSideProps<{ data: Product[] }> = async () => {
-  const { data } = await client.get<Product[]>('/products/get-products?productCategory=pizza&limit=8');
+  const { data } = await client.get<Product[]>('/products/get-products?limit=8');
 
   return {
     props: {

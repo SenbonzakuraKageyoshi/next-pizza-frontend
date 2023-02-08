@@ -14,7 +14,7 @@ const CartLink = React.memo(() => {
 
   let productsNumber: number = 0;
 
-  if(selectedProductsData.data){
+  if(selectedProductsData.data && selectedProductsData.data.length){
     selectedProductsData.data.forEach((el) => {
       productsNumber += el.productsNumber
     })

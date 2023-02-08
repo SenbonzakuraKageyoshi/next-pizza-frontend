@@ -7,6 +7,7 @@ import { updateUser } from '../../service/service';
 import { fetchUser } from '../../redux/userSlice/userSlice';
 import { useState } from 'react';
 import styles from '../../../styles/forms.module.scss';
+import Loader from '../Loader/Loader';
 
 const AdressComponent = () => {
 
@@ -30,7 +31,7 @@ const AdressComponent = () => {
 
   return (
     userData.data && userData.status === 'fulfilled'
-    &&
+    ?
     <form action="POST" className={styles.adressForm} onSubmit={handleSubmit(onSubmitHandler)}>
         <div className={styles.formItem}>
             <div>
@@ -63,6 +64,16 @@ const AdressComponent = () => {
         <button className={styles.sendFormButton}>Сохранить</button>
         {errorMessage && <ErrorMessage message={errorMessage}/>}
     </form>
+    :
+    !userData.data && userData.status === 'pending'
+    ?
+    <Loader />
+    :
+    !userData.data && userData.status === 'rejected'
+    ?
+    <ErrorMessage message='Ошибка получения данных о пользователе'/>
+    :
+    null
   )
 }
 

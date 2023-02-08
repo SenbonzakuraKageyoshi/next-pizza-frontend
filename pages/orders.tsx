@@ -9,6 +9,7 @@ import Loader from "../src/components/Loader/Loader";
 import ErrorMessage from "../src/components/ErrorMessage/ErrorMessage";
 import { nanoid } from "nanoid";
 import { SelectedProduct } from "../src/types/product";
+import { checkAuth } from "../src/utils/checkAuth";
 import styles from '../styles/orders.module.scss';
 
 const orders = () => {
@@ -19,6 +20,8 @@ const orders = () => {
     const [isError, setIsError] = useState<boolean>(false);
 
     useEffect(() => {
+        checkAuth(userData)
+        
         if(userData.data){
             getOrders({UserId: userData.data.id})
             .then((data) => setOrders(data))
